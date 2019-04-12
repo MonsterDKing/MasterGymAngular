@@ -1,0 +1,20 @@
+<!-- <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre Completo</th>
+        <th scope="col">Fecha de vencimiento</th>
+        <th scope="col">Clave de acceso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listadoPersonas; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.nombreCompleto}}</td>
+        <td>{{item.fechaIngreso}}</td>
+        <td>{{item.randomAccess}}</td>
+      </tr>
+    </tbody>
+  </table>  -->
+
+  <ng2-smart-table [settings]="settings" [source]="listadoPersonas"></ng2-smart-table>

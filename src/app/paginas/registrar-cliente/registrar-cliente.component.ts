@@ -1,0 +1,56 @@
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { PersonasService } from '../../Servicios/personas.service';
+
+@Component({
+  selector: 'app-registrar-cliente',
+  templateUrl: './registrar-cliente.component.html',
+  styleUrls: ['./registrar-cliente.component.css']
+})
+export class RegistrarClienteComponent implements OnInit {
+
+  completo = false;
+  tiempo = 5;
+  interval;
+
+  formulario = new FormGroup({
+    nombreCompleto: new FormControl(),
+    fechaIngreso: new FormControl(),
+
+  });
+
+  registrarCheckbox = false;
+
+  constructor(private _ps: PersonasService) { }
+
+  ngOnInit() {
+  }
+
+  cambiarEstado() {
+    this.registrarCheckbox = true;
+  }
+
+
+  onSubmit() {
+    this._ps.registrarCliente(this.formulario.value).subscribe((data: any) => {
+      if (data.error) {
+        console.log('no encontro ningun fallo');
+      }
+      if (data.error === false) {
+        this.completo = true;
+        this.startTimer();
+      }
+
+    })
+  }
+
+  startTimer() {
+    this.interval = setInterval(() => {
+      if (this.tiempo > 0) {
+        this.tiempo--;
+      }
+    }, 1000)
+  }
+
+
+}

@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>​
+    <div class="col">
+      <img src="{{rutaImagen}}" class="img-fluid" alt="">
+    </div>​
+    <div class="col">
+    </div>​
+  </div>
+</div>
+<hr>
+<br>
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">Nombre Completo</label>
+      <input type="text" class="form-control" id="nombre" formControlName="nombreCompleto" name="nombrecompleto"
+        placeholder="Nombre Completo" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Fecha de Ingreso</label>
+    <input type="date" formControlName="fechaIngreso" class="form-control" id="inputAddress">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Clave de acceso</label>
+    <input type="text" formControlName="claverandom" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Foto</label>
+    <input type="file" formControlName="foto" accept="image/*" (change)="handleFileInput($event.target.files)"
+      class="form-control">
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" (click)="cambiarEstado()" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Verificar
+      </label>
+    </div>
+  </div>
+  <button [disabled]="!registrarCheckbox" type="submit" class="btn btn-primary">Actualizar Cliente</button>
+  <br>
+  <br>
+  <div *ngIf="completo === true" class="alert alert-success" role="alert">
+    El usuario se a actualizado correctamente sera rediraccionado en {{tiempo}}
+  </div>
+
+  <div *ngIf="imagenCargada === true" class="alert alert-success" role="alert">
+    La imagen se ha cargado correctamente
+  </div>
+</form>
