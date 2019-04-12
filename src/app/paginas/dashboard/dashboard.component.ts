@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonasService } from '../../Servicios/personas.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  arregloPersonas = [];
+
+  constructor(private _PS: PersonasService ) {
+    this._PS.personasvencidasMes().subscribe((res: any ) => {
+      console.log(res);
+      this.arregloPersonas = res.personas;
+    });
+  }
 
   ngOnInit() {
   }
