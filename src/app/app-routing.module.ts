@@ -9,6 +9,7 @@ import { RegistroComponent } from './paginas/registro/registro.component';
 import { RegistrarClienteComponent } from './paginas/registrar-cliente/registrar-cliente.component';
 import { ModificarClienteComponent } from './paginas/modificar-cliente/modificar-cliente.component';
 import { EntradaClientesComponent } from './paginas/entrada-clientes/entrada-clientes.component';
+import { InformacionClienteComponent } from './paginas/informacion-cliente/informacion-cliente.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
   {path: 'entradaClientes', component: EntradaClientesComponent},
+  {path: 'cliente/:idCliente', component: InformacionClienteComponent},
   {path: '**', component: NoPageFoundComponent}
 ];
 

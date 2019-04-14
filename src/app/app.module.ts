@@ -20,6 +20,9 @@ import { FormsModule } from '@angular/forms';
 import { ModificarClienteComponent } from './paginas/modificar-cliente/modificar-cliente.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { EntradaClientesComponent } from './paginas/entrada-clientes/entrada-clientes.component';
+import { WidgetDataComponent } from './compartido/widget-data/widget-data.component';
+import { InformacionClienteComponent } from './paginas/informacion-cliente/informacion-cliente.component';
+import { BusquedasComponent } from './paginas/busquedas/busquedas.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { EntradaClientesComponent } from './paginas/entrada-clientes/entrada-cli
     RegistroComponent,
     RegistrarClienteComponent,
     ModificarClienteComponent,
-    EntradaClientesComponent
+    EntradaClientesComponent,
+    WidgetDataComponent,
+    InformacionClienteComponent,
+    BusquedasComponent
   ],
   imports: [
     BrowserModule,

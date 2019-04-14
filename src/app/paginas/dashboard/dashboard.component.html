@@ -1,3 +1,4 @@
+
 <!-- ============================================================== -->
 <!-- Projects of the month -->
 <!-- ============================================================== -->
@@ -11,7 +12,7 @@
               <span class="lstick"></span>Clientes Vencidos En el Mes
             </h4>
           </div>
-          
+
         </div>
         <div class="table-responsive m-t-20 no-wrap">
           <table class="table vm no-th-brd pro-of-month">
@@ -24,84 +25,39 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td style="width:50px;"><span class="round">S</span></td>
-                <td>
+              <tr *ngIf="arregloPersonas.length == 0">
+                <td colspan="4">No hay clientes que venzan en este mes</td>
+              </tr>
+              <tr *ngFor="let i of arregloPersonas">
+                <ng-container *ngIf="i.foto !== null; then confoto; else sinfoto">
+                </ng-container>
+
+                <ng-template #sinfoto>
+                  <td colspan="2" style="width:50px;"><span class="round">S</span></td>
+                </ng-template>
+                <ng-template #confoto>
+                  <td colspan="2"><span class="round"><img
+                        src="http://localhost:8080/api/usuario/uploads/img/{{i.foto}}" alt="user" width="50"></span>
+                  </td>
+                </ng-template>
+
+
+
+
+
+
+                <!-- <td>
                   <h6>Sunil Joshi</h6>
                   <small class="text-muted">Web Designer</small>
-                </td>
-                <td>Elite Admin</td>
+                </td> -->
+                <td>{{i.nombreCompleto}}</td>
                 <td>
-                  <span class="label label-success label-rounded">Low</span>
-                </td>
-                <td>$3.9K</td>
-              </tr>
-              <tr class="active">
-                <td>
-                  <span class="round"
-                    ><img
-                      src="../assets/images/users/2.jpg"
-                      alt="user"
-                      width="50"
-                  /></span>
+                  <span class="label label-success label-rounded">{{i.fechaVencimiento}}</span>
                 </td>
                 <td>
-                  <h6>Andrew</h6>
-                  <small class="text-muted">Project Manager</small>
+                  <span class="label label-success label-rounded">{{i.randomAccess}}</span>
                 </td>
-                <td>Real Homes</td>
-                <td>
-                  <span class="label label-info label-rounded">Medium</span>
-                </td>
-                <td>$23.9K</td>
-              </tr>
-              <tr>
-                <td><span class="round round-success">B</span></td>
-                <td>
-                  <h6>Bhavesh patel</h6>
-                  <small class="text-muted">Developer</small>
-                </td>
-                <td>MedicalPro Theme</td>
-                <td>
-                  <span class="label label-primary label-rounded">High</span>
-                </td>
-                <td>$12.9K</td>
-              </tr>
-              <tr>
-                <td><span class="round round-primary">N</span></td>
-                <td>
-                  <h6>Nirav Joshi</h6>
-                  <small class="text-muted">Frontend Eng</small>
-                </td>
-                <td>Elite Admin</td>
-                <td>
-                  <span class="label label-danger label-rounded">Low</span>
-                </td>
-                <td>$10.9K</td>
-              </tr>
-              <tr>
-                <td><span class="round round-warning">M</span></td>
-                <td>
-                  <h6>Micheal Doe</h6>
-                  <small class="text-muted">Content Writer</small>
-                </td>
-                <td>Helping Hands</td>
-                <td>
-                  <span class="label label-success label-rounded">High</span>
-                </td>
-                <td>$12.9K</td>
-              </tr>
-              <tr>
-                <td><span class="round round-danger">N</span></td>
-                <td>
-                  <h6>Johnathan</h6>
-                  <small class="text-muted">Graphic</small>
-                </td>
-                <td>Digital Agency</td>
-                <td>
-                  <span class="label label-info label-rounded">High</span>
-                </td>
-                <td>$2.6K</td>
+
               </tr>
             </tbody>
           </table>

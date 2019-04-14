@@ -12,8 +12,10 @@ export class DashboardComponent implements OnInit {
 
   constructor(private _PS: PersonasService ) {
     this._PS.personasvencidasMes().subscribe((res: any ) => {
-      console.log(res);
-      this.arregloPersonas = res.personas;
+      if(res.personas.length !== 0) {
+        console.log(res)
+        this.arregloPersonas = res.personas;
+      }
     });
   }
 
